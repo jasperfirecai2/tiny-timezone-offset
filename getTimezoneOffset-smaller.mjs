@@ -3,5 +3,5 @@ export function getTimezoneOffset(date, destinationTimezoneName) {
   const splitString = offsetString.split(":");
   const hourOffset = parseInt(splitString[0]);
   const minuteOffset = parseInt(splitString[1] ?? 0);
-  return {hourOffset, minuteOffset, totalOffset: hourOffset * 60 + minuteOffset};
+  return {hourOffset, minuteOffset, totalOffset: hourOffset * 60 + (minuteOffset * (hourOffset > 0 ? 1 : -1))};
 }
