@@ -1,0 +1,21 @@
+{
+  "name": "tiny-timezone-offset",
+  "version": "1.0.0",
+  "description": "Simple tiny timezone offset utility function using Intl. See also get-timezone-offset",
+  "main": "getTimezoneOffset.mjs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasperfirecai2/tiny-timezone-offset.git"
+  },
+  "keywords": [
+    "timezone",
+    "offset",
+    "lightweight"
+  ],
+  "author": "jasperfirecai2",
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/jasperfirecai2/tiny-timezone-offset/issues"
+  },
+  "homepage": "https://github.com/jasperfirecai2/tiny-timezone-offset#readme"
+}
