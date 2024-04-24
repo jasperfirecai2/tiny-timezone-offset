@@ -46,10 +46,10 @@ If the offset given is -120 mins (like the default method): 10:00 + (-120 minute
 
 ## Troubleshooting
 
-[^1]: If you are running getTimezoneOffset on the server and using alpine or other ultra minimal docker image without a timezone database, you need to install the `tzdata` package. Most docker images, including the ["slim" images publishd by node](https://hub.docker.com/_/node/tags?name=slim) already include `tzdata`.
+[^1]: If you are running getTimezoneOffset on the server and using alpine or other ultra minimal docker image without a timezone database, you need to install the `tzdata` package. Most docker images, including the ["slim" images published by node](https://hub.docker.com/_/node/tags?name=slim) already include `tzdata`.
 
 Results for locations that experience daylight saving change throughout the year
-Results for locations that [https://data.iana.org/time-zones/tzdb/NEWS](have moved timezone) may vary as the tz database is modified. This sometimes includes retrospective changes.
+Results for locations that [have moved timezone](https://data.iana.org/time-zones/tzdb/NEWS) may vary as the tz database is modified. This sometimes includes retrospective changes.
 
 ## How it works
 
