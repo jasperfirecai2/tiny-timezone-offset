@@ -1,7 +1,7 @@
 {
   "name": "tiny-timezone-offset",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple tiny timezone offset utility function using Intl. See also get-timezone-offset",
   "main": "./dist/main.js",
   "exports": {

@@ -18,8 +18,8 @@ See also [get-timezone-offset](https://www.npmjs.com/package/get-timezone-offset
 
 ```
 
-This is in line with builtin getTimezoneOffset() which gives you the timezone offset in 'minutes needed to add to return to UTC.'
-getTimezoneOffset() does this for the machine's local timezone only.
+This is in line with builtin Date.prototype.getTimezoneOffset() which gives you the timezone offset in 'minutes needed to add to return to UTC.'
+Date.prototype.getTimezoneOffset() does this for the machine's local timezone only.
 
 ### Using the relative offset based on ISO 8601/ANSI standards
 
