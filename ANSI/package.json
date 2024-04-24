@@ -1,5 +1,0 @@
-{
-    "main": "./getTimezoneOffset-ANSI.js",
-    "type": "module",
-    "private": true
-  }

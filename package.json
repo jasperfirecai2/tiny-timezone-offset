@@ -3,34 +3,27 @@
   "type": "module",
   "version": "1.0.0",
   "description": "Simple tiny timezone offset utility function using Intl. See also get-timezone-offset",
-  "main": "./getTimezoneOffset.js",
+  "main": "./dist/main.js",
   "exports": {
-    "./ANSI": "./ANSI/getTimezoneOffset-ANSI.js",
-    "./POSIX" : "./getTimezoneOffset.js",
-    "." : "./getTimezoneOffset.js",
-    "./source": "./getTimezoneOffset - source.js"
+    "./ANSI": "./dist/ansi.js",
+    "./POSIX" : "./dist/main.js",
+    "." : "./dist/main.js",
+    "./source": "./src/main.js"
   },
   "files": [
-    "getTimezoneOffset.js",
-    "getTimezoneOffset - source.js",
-    "ANSI",
-    "benchmark.mjs",
-    "check.mjs"
+    "dist"
   ],
   "scripts": {
-    "bench": "node benchmark.mjs",
-    "check-output": "node check.mjs"
+    "bench": "node test/benchmark.mjs",
+    "check-output": "node test/check.mjs"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jasperfirecai2/tiny-timezone-offset.git"
-  },
+  "repository": "https://github.com/jasperfirecai2/tiny-timezone-offset.git",
   "keywords": [
     "timezone",
     "offset",
     "lightweight"
   ],
-  "author": "jasperfirecai2",
+  "author": "Jasper (https://github.com/jasperfirecai2)",
   "license": "CC0-1.0",
   "bugs": {
     "url": "https://github.com/jasperfirecai2/tiny-timezone-offset/issues"

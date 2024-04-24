@@ -1,6 +1,6 @@
-import { getTimezoneOffset as getANSIOffset } from "./ANSI/getTimezoneOffset-ANSI.js";
-import { getTimezoneOffset as getSourceOffset } from "./getTimezoneOffset - source.js";
-import { getTimezoneOffset } from "./getTimezoneOffset.js";
+import { getTimezoneOffset as getANSIOffset } from "../dist/ansi.js";
+import { getTimezoneOffset as getSourceOffset } from "../src/main.js";
+import { getTimezoneOffset } from "../dist/main.js";
 
 const timezone = "Pacific/Chatham";
 const now = new Date();

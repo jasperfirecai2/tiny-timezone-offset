@@ -7,29 +7,34 @@ See also [get-timezone-offset](https://www.npmjs.com/package/get-timezone-offset
 
 ## Usage
 
+### Default
+
 ```js
     import { getTimezoneOffset } from 'tiny-timezone-offset';
-    const now = new Date(); // Should be the date you wish to check the offset for. If this date is during DST, it will respect it.
-    const {houroffset, minuteOffset, totalOffset} = getTimezoneOffset(now, "Europe/Amsterdam");
-    // During daylight savings time, this should return {-2, 0, -120}
+    const now = new Date(); 
+    // Should be the date you wish to check the offset for. If this date is during DST, it will respect it.
+    const { houroffset, minuteOffset, totalOffset } = getTimezoneOffset(now, "Europe/Amsterdam");
+    // During daylight savings time, this should return { -2, 0, -120 }
 
 ```
 
-This is in line with builtin getTimezoneOffset() which gives you the local machine's timezone offset in 'minutes needed to add to return to UTC'
+This is in line with builtin getTimezoneOffset() which gives you the timezone offset in 'minutes needed to add to return to UTC.'
+getTimezoneOffset() does this for the machine's local timezone only.
 
 ### Using the relative offset based on ISO 8601/ANSI standards
 
 ```js
     import { getTimezoneOffset } from 'tiny-timezone-offset/ANSI';
-    const now = new Date(); // Should be the date you wish to check the offset for. If this date is during DST, it will respect it.
-    const {houroffset, minuteOffset, totalOffset} = getTimezoneOffset(now, "Europe/Amsterdam");
-    // During daylight savings time, this should return {2, 0, 120}
+    const now = new Date(); 
+    // Should be the date you wish to check the offset for. If this date is during DST, it will respect it.
+    const { houroffset, minuteOffset, totalOffset } = getTimezoneOffset(now, "Europe/Amsterdam");
+    // During daylight savings time, this should return { 2, 0, 120 }
 
 ```
 
 This returns the timezone offset in 'minutes past UTC'.
 
-### To compare
+### Differences
 
 With the default method, one should ADD the offset to a UTC date to get the timezoned date in UTC.
 
@@ -38,6 +43,13 @@ With the ANSI method, one should SUBTRACT the offset from a UTC date to get the 
 i.e. a time of 10:00 in a timezone 2 hours ahead of UTC will be 08:00 in UTC.
 
 If the offset given is -120 mins (like the default method): 10:00 + (-120 minutes) = 08:00. if the offset given is 120 mins (like the ANSI method) 10:00 - (120 minutes) = 08:00.
+
+## Troubleshooting
+
+[^1]: If you are running getTimezoneOffset on the server and using alpine or other ultra minimal docker image without a timezone database, you need to install the `tzdata` package. Most docker images, including the ["slim" images publishd by node](https://hub.docker.com/_/node/tags?name=slim) already include `tzdata`.
+
+Results for locations that experience daylight saving change throughout the year
+Results for locations that [https://data.iana.org/time-zones/tzdb/NEWS](have moved timezone) may vary as the tz database is modified. This sometimes includes retrospective changes.
 
 ## How it works
 
@@ -68,10 +80,3 @@ Internationalization was introduced in 2012; Engine support is tracked [here](ht
   * get-timezone-offset was written _and tested_ to work in any browser and node versions of 4 and above. I have not written tiny-timezone-offset with that in mind. Please check if get-timezone-offset can fulfill your needs if backwards compat is a big deal to your project.
 * Performance
   * In a majority of my own benchmarks, get-timezone-offset was about ~10% faster than tiny-timezone-offset. I could possibly improve performance by using regular expressions, but as it stands, I use normal string operations. Please run the benchmark yourself to compare and pick what's best for you if performance matters.
-
-## Troubleshooting
-
-[^1]: If you are running getTimezoneOffset on the server and using alpine or other ultra minimal docker image without a timezone database, you need to install the `tzdata` package. Most docker images, including the ["slim" images publishd by node](https://hub.docker.com/_/node/tags?name=slim) already include `tzdata`.
-
-Results for locations that experience daylight saving change throughout the year
-Results for locations that [https://data.iana.org/time-zones/tzdb/NEWS](have moved timezone) may vary as the tz database is modified. This sometimes includes retrospective changes.
