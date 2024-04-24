@@ -1,8 +1,26 @@
 {
   "name": "tiny-timezone-offset",
+  "type": "module",
   "version": "1.0.0",
   "description": "Simple tiny timezone offset utility function using Intl. See also get-timezone-offset",
-  "main": "getTimezoneOffset-smaller.mjs",
+  "main": "./getTimezoneOffset.js",
+  "exports": {
+    "./ANSI": "./ANSI/getTimezoneOffset-ANSI.js",
+    "./POSIX" : "./getTimezoneOffset.js",
+    "." : "./getTimezoneOffset.js",
+    "./source": "./getTimezoneOffset - source.js"
+  },
+  "files": [
+    "getTimezoneOffset.js",
+    "getTimezoneOffset - source.js",
+    "ANSI",
+    "benchmark.mjs",
+    "check.mjs"
+  ],
+  "scripts": {
+    "bench": "node benchmark.mjs",
+    "check-output": "node check.mjs"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jasperfirecai2/tiny-timezone-offset.git"
@@ -17,5 +35,9 @@
   "bugs": {
     "url": "https://github.com/jasperfirecai2/tiny-timezone-offset/issues"
   },
-  "homepage": "https://github.com/jasperfirecai2/tiny-timezone-offset#readme"
+  "homepage": "https://github.com/jasperfirecai2/tiny-timezone-offset#readme",
+  "devDependencies": {
+    "bench-node": "^0.0.1-beta.0",
+    "get-timezone-offset": "^1.0.5"
+  }
 }
